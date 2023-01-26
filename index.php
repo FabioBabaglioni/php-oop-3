@@ -133,12 +133,41 @@ echo $impiegato->getHtml();
 class amministratore extends persona{
     private $dividendo;
     private $bonus;
+    private $redditoAnnuale;
 
-    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus)
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus, $redditoAnnuale)
     {
         parent::__construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
 
         $this->setDividendo($dividendo);
         $this->setBonus($bonus);
+        $this->setRedditoAnnuale($redditoAnnuale);
     }
+
+    public function getDividendo(){
+        return $this->dividendo;
+    }
+    
+    public function setDividendo($dividendo){
+        $this->dividendo = $dividendo;
+    }
+    
+    public function getBonus(){
+        return $this->bonus;
+    }
+
+    public function setBonus($bonus){
+        $this->bonus = $bonus;
+    }
+
+    public function getRedditoAnnuale(){
+        return $this->redditoAnnuale;
+    }
+
+    public function setRedditoAnnuale($redditoAnnuale){
+        $this->redditoAnnuale = $redditoAnnuale;
+    }
+
+    
 }
+
