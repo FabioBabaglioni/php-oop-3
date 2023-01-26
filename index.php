@@ -96,7 +96,20 @@ class persona{
 
 // echo $persona1->getHtml();
 
-class impiegato extends persona
-{
+class impiegato extends persona{
+
+    private $hiringDate;
+
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $hiringDate)
+    {
+        parent :: __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
+
+        $this -> setHiringDate($hiringDate);
+    }
+
 
 }
+
+$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019");
+
+echo $impiegato->getHtml();
