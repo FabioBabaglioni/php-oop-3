@@ -126,4 +126,6 @@ class impiegato extends persona{
 
 }
 
-;
+$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019");
+
+echo $impiegato->getHtml();
