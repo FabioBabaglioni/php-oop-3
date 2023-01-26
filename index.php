@@ -133,7 +133,6 @@ echo $impiegato->getHtml();
 class amministratore extends persona{
     private $dividendo;
     private $bonus;
-    // private $redditoAnnuale;
 
     public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus)
     {
@@ -141,7 +140,6 @@ class amministratore extends persona{
 
         $this->setDividendo($dividendo);
         $this->setBonus($bonus);
-        // $this->setRedditoAnnuale($redditoAnnuale);
     }
 
     public function getDividendo(){
@@ -160,14 +158,7 @@ class amministratore extends persona{
         $this->bonus = $bonus;
     }
 
-    // public function getRedditoAnnuale(){
-    //     return $this->redditoAnnuale;
-    // }
-
-    // public function setRedditoAnnuale($redditoAnnuale){
-    //     $this->redditoAnnuale = $redditoAnnuale;
-    // }
-
+    // setto il compenso dell'amministratore
     public function calcoloCompenso(){
         return ($this->dividendo*12) + $this->bonus;
     }
@@ -176,12 +167,12 @@ class amministratore extends persona{
     {
         return "<h2> Amministratore </h2> <br>"
             . parent::getHtml() . "<br>"
-            . "Dividendo: " . $this->getDividendo() . "<br>"
-            . "Bonus: " . $this->getBonus() . "<br>"
-            . "Compenso: " . $this->calcoloCompenso();
+            . "Dividendo: € " . $this->getDividendo() . "<br>"
+            . "Bonus: € " . $this->getBonus() . "<br>"
+            . "Compenso: € " . $this->calcoloCompenso();
     }
 }
 
-$amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", "€ 300.000,00", "€ 25.000,00");
+$amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", 25000, 20000);
 
 echo $amministratore->getHtml();
