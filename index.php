@@ -178,3 +178,6 @@ class amministratore extends persona{
     }
 }
 
+$amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", "€ 300.000,00", "€ 25.000,00", "");
+
+echo $amministratore->getHtml();
