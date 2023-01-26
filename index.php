@@ -122,12 +122,13 @@ class impiegato extends persona{
     {
         return "<h2> Impiegato </h2> <br>"
             . parent::getHtml() . "<br>"
-            . "Data di assunzione: " . $this->getHiringDate();
+            . "Data di assunzione: " . $this->getHiringDate()
+            . "Stipendio: € " . $this->calcoloStipendio();
     }
 
 }
 
-$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019");
+$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019", $stipendio1);
 
 echo $impiegato->getHtml();
 
@@ -166,7 +167,13 @@ class stipendio{
     public function setQuattordicesima($quattordicesima){
         $this->quattordicesima = $quattordicesima;
     }
+
+    public function calcoloStipendio(){
+        return ($this -> mensile *12);
+    }
 }
+
+$stipendio1 = new stipendio(1400, "si", "no");
 
 class amministratore extends persona{
     private $dividendo;
