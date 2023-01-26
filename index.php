@@ -21,4 +21,28 @@ class persona{
 
     }
 
+    public function getId(){
+
+        return $this->id;
+    }
+    public function getName(){
+
+        return $this->name;
+    }
+    public function getSurname(){
+        
+        return $this->surname;
+    }
+    public function getDateOfBirth(){
+
+        return $this->dateOfBirth;
+    }
+    public function getBirthPlace(){
+
+        return $this->birthPlace;
+    }
+    public function getFiscalCode(){
+
+        return $this->fiscalCode;
+    }
 }
