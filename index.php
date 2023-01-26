@@ -168,6 +168,13 @@ class amministratore extends persona{
         $this->redditoAnnuale = $redditoAnnuale;
     }
 
-    
+    public function getHtml()
+    {
+        return "<h2> Amministratore </h2> <br>"
+            . parent::getHtml() . "<br>"
+            . "Dividendo: " . $this->getDividendo() . "<br>"
+            . "Bonus: " . $this->getBonus() . "<br>"
+            . "Reddito annuale: " . $this->getRedditoAnnuale();
+    }
 }
 
