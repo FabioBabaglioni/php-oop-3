@@ -133,4 +133,12 @@ echo $impiegato->getHtml();
 class amministratore extends persona{
     private $dividendo;
     private $bonus;
+
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus)
+    {
+        parent::__construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
+
+        $this->setDividendo($dividendo);
+        $this->setBonus($bonus);
+    }
 }
