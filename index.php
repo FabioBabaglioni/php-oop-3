@@ -81,4 +81,17 @@ class persona{
         $this->fiscalCode = $fiscalCode;
     }
 
+    public function getHtml(){
+        return "Id: " .  $this->getId() . "<br>"
+            . "Nome: " . $this->getName() . "<br>"
+            . "Cognome: " . $this->getSurname() . "<br>"
+            . "Data di nascita: " . $this->getDateOfBirth() . "<br>"
+            . "Luogo di nascita: " . $this->getBirthPlace() . "<br>"
+            . "Codice fiscale: " . $this->getFiscalCode() . "<br>";
+    }
+
 }
+
+$persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
+
+echo $persona1->getHtml();
