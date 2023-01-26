@@ -98,9 +98,10 @@ class persona{
 
 class impiegato extends persona{
 
+    private stipendio $stipendio;
     private $hiringDate;
 
-    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $hiringDate)
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $hiringDate, $stipendio)
     {
         parent :: __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
 
@@ -129,6 +130,21 @@ class impiegato extends persona{
 $impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019");
 
 echo $impiegato->getHtml();
+
+class stipendio{
+    private $mensile;
+    private $tredicesima;
+    private $quattordicesima;
+
+    public function __construct($mensile, $tredicesima, $quattordicesima)
+    {
+        $this->setMensile($mensile);
+        $this->setTredicesima($tredicesima);
+        $this->setQuattordicesima($quattordicesima);
+    }
+
+    
+}
 
 class amministratore extends persona{
     private $dividendo;
