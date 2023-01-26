@@ -92,46 +92,6 @@ class persona{
 
 }
 
-// $persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
-
-// echo $persona1->getHtml();
-
-class impiegato extends persona{
-
-    private stipendio $stipendio;
-    private $hiringDate;
-
-    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $hiringDate, $stipendio)
-    {
-        parent :: __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
-
-        $this -> setHiringDate($hiringDate);
-    }
-
-    public function getHiringDate(){
-
-        return $this -> hiringDate;
-    }
-
-    public function setHiringDate($hiringDate){
-
-        $this -> hiringDate = $hiringDate;
-    }
-
-    public function getHtml()
-    {
-        return "<h2> Impiegato </h2> <br>"
-            . parent::getHtml() . "<br>"
-            . "Data di assunzione: " . $this->getHiringDate()
-            . "Stipendio: € " . $this->calcoloStipendio();
-    }
-
-}
-
-$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019", $stipendio1);
-
-echo $impiegato->getHtml();
-
 class stipendio{
     private $mensile;
     private $tredicesima;
@@ -169,11 +129,47 @@ class stipendio{
     }
 
     public function calcoloStipendio(){
-        return ($this -> mensile *12);
+        //calcolo
+        return ($this -> mensile*12);
     }
 }
 
-$stipendio1 = new stipendio(1400, "si", "no");
+class impiegato extends persona{
+
+    private stipendio $stipendio;
+    private $hiringDate;
+
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $hiringDate, $stipendio)
+    {
+        parent :: __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
+        $this -> setHiringDate($hiringDate);
+        $this->setStipendio($stipendio);
+    }
+
+    public function getHiringDate(){
+
+        return $this -> hiringDate;
+    }
+
+    public function setHiringDate($hiringDate){
+
+        $this -> hiringDate = $hiringDate;
+    }
+
+    public function setStipendio($stipendio)
+    {
+        $this->stipendio = $stipendio;
+    }
+
+    public function getHtml()
+    {
+        return "<h2> Impiegato </h2> <br>"
+            . parent::getHtml() . "<br>"
+            . "Data di assunzione: " . $this->getHiringDate() . "<br>"
+            . "Stipendio: € " . $this->stipendio->calcoloStipendio();
+    }
+
+}
 
 class amministratore extends persona{
     private $dividendo;
@@ -217,6 +213,23 @@ class amministratore extends persona{
             . "Compenso: € " . $this->calcoloCompenso();
     }
 }
+
+// $persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
+
+// echo $persona1->getHtml();
+
+
+
+$stipendioBase = new stipendio(1400, "si", "no");
+
+
+$impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019", $stipendioBase);
+
+echo $impiegato->getHtml();
+
+
+
+
 
 $amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", 25000, 20000);
 
