@@ -133,15 +133,15 @@ echo $impiegato->getHtml();
 class amministratore extends persona{
     private $dividendo;
     private $bonus;
-    private $redditoAnnuale;
+    // private $redditoAnnuale;
 
-    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus, $redditoAnnuale)
+    public function __construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode, $dividendo, $bonus)
     {
         parent::__construct($id, $name, $surname, $dateOfBirth, $birthPlace, $fiscalCode);
 
         $this->setDividendo($dividendo);
         $this->setBonus($bonus);
-        $this->setRedditoAnnuale($redditoAnnuale);
+        // $this->setRedditoAnnuale($redditoAnnuale);
     }
 
     public function getDividendo(){
@@ -160,12 +160,16 @@ class amministratore extends persona{
         $this->bonus = $bonus;
     }
 
-    public function getRedditoAnnuale(){
-        return $this->redditoAnnuale;
-    }
+    // public function getRedditoAnnuale(){
+    //     return $this->redditoAnnuale;
+    // }
 
-    public function setRedditoAnnuale($redditoAnnuale){
-        $this->redditoAnnuale = $redditoAnnuale;
+    // public function setRedditoAnnuale($redditoAnnuale){
+    //     $this->redditoAnnuale = $redditoAnnuale;
+    // }
+
+    public function calcoloCompenso(){
+        return ($this->dividendo*12) + $this->bonus;
     }
 
     public function getHtml()
@@ -174,10 +178,10 @@ class amministratore extends persona{
             . parent::getHtml() . "<br>"
             . "Dividendo: " . $this->getDividendo() . "<br>"
             . "Bonus: " . $this->getBonus() . "<br>"
-            . "Reddito annuale: " . $this->getRedditoAnnuale();
+            . "Compenso: " . $this->calcoloCompenso();
     }
 }
 
-$amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", "€ 300.000,00", "€ 25.000,00", "");
+$amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", "€ 300.000,00", "€ 25.000,00");
 
 echo $amministratore->getHtml();
