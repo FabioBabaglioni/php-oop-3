@@ -143,7 +143,29 @@ class stipendio{
         $this->setQuattordicesima($quattordicesima);
     }
 
+    public function getMensile(){
+        return $this->mensile;
+    }
+
+    public function setMensile($mensile){
+        $this->mensile = $mensile;
+    }
+
+    public function getTredicesima(){
+        return $this->tredicesima;
+    }
     
+    public function setTredicesima($tredicesima){
+        $this->tredicesima = $tredicesima;
+    }
+
+    public function getQuattordicesima(){
+        return $this->quattordicesima;
+    }
+
+    public function setQuattordicesima($quattordicesima){
+        $this->quattordicesima = $quattordicesima;
+    }
 }
 
 class amministratore extends persona{
