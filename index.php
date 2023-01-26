@@ -87,11 +87,16 @@ class persona{
             . "Cognome: " . $this->getSurname() . "<br>"
             . "Data di nascita: " . $this->getDateOfBirth() . "<br>"
             . "Luogo di nascita: " . $this->getBirthPlace() . "<br>"
-            . "Codice fiscale: " . $this->getFiscalCode() . "<br>";
+            . "Codice fiscale: " . $this->getFiscalCode();
     }
 
 }
 
-$persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
+// $persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
 
-echo $persona1->getHtml();
+// echo $persona1->getHtml();
+
+class impiegato extends persona
+{
+
+}
