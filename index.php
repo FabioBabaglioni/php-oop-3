@@ -130,7 +130,17 @@ class stipendio{
 
     public function calcoloStipendio(){
         //calcolo
-        return ($this -> mensile*12);
+        $mensile = $this->getMensile();
+        $res = $mensile * 12;
+
+        if ($this->getTredicesima()){
+            $res += $mensile;
+        }
+        if ($this->getQuattordicesima()){
+            $res += $mensile;
+        }
+        return $res;
+
     }
 }
 
@@ -212,25 +222,19 @@ class amministratore extends persona{
             . "Bonus: € " . $this->getBonus() . "<br>"
             . "Compenso: € " . $this->calcoloCompenso();
     }
-}
+} 
 
-// $persona1 = new persona(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B");
+// setto il rpimo stipensio 
+$stipendioBase = new stipendio(1400, true, true);
 
-// echo $persona1->getHtml();
-
-
-
-$stipendioBase = new stipendio(1400, "si", "no");
-
-
+// setto i dati di impiegato
 $impiegato = new impiegato(1, "Fabio", "Babaglioni", "19/11/2000", "Brescia", "BBGFBA00S19B157B", "20/05/2019", $stipendioBase);
 
+// stampo impiegato 
 echo $impiegato->getHtml();
 
-
-
-
-
+// setto i dati dell'amministratore
 $amministratore = new amministratore(1, "Chiara", "Plebani", "10/10/1990", "Brescia", "PLBCHR05A57B157B", 25000, 20000);
 
+// stampo amministratore
 echo $amministratore->getHtml();
